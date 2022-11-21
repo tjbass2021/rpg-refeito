@@ -3,9 +3,8 @@ public abstract class Personagem {
 	protected String nome;
 	protected String raca;
 	protected String classe;
-
-	// Maths
-	Maths calc = new Maths();
+	protected int nivel;
+	protected int bonusDeProficiencia;
 
 	// Atributos
 	int forca;
@@ -17,12 +16,28 @@ public abstract class Personagem {
 
 	// Modificadores
 
-	int modFor = calc.calcMods(forca);
-	int modCon = calc.calcMods(constituicao);
-	int modDes = calc.calcMods(destreza);
-	int modInt = calc.calcMods(inteligencia);
-	int modSab = calc.calcMods(sabedoria);
-	int modCar = calc.calcMods(carisma);
+	int modFor;
+	int modCon;
+	int modDes;
+	int modInt;
+	int modSab;
+	int modCar;
+
+	public void setBonusDeProficiencia(int bonusDeProficiencia) {
+		this.bonusDeProficiencia = bonusDeProficiencia;
+	}
+
+	public int getBonusDeProficiencia() {
+		return bonusDeProficiencia;
+	}
+
+	public void setNivel(int nivel) {
+		this.nivel = nivel;
+	}
+
+	public int getNivel() {
+		return nivel;
+	}
 
 	protected String getNome() {
 		return nome;
@@ -62,7 +77,7 @@ public abstract class Personagem {
 	}
 
 	protected void setConstituicao(int constituicao) {
-		this.constituicao = constituicao;
+		this.constituicao += constituicao;
 	}
 
 	protected int getDestreza() {
@@ -70,7 +85,7 @@ public abstract class Personagem {
 	}
 
 	protected void setDestreza(int destreza) {
-		this.destreza = destreza;
+		this.destreza += destreza;
 	}
 
 	protected int getInteligencia() {
@@ -78,7 +93,7 @@ public abstract class Personagem {
 	}
 
 	protected void setInteligencia(int inteligencia) {
-		this.inteligencia = inteligencia;
+		this.inteligencia += inteligencia;
 	}
 
 	protected int getSabedoria() {
@@ -86,7 +101,7 @@ public abstract class Personagem {
 	}
 
 	protected void setSabedoria(int sabedoria) {
-		this.sabedoria = sabedoria;
+		this.sabedoria += sabedoria;
 	}
 
 	protected int getCarisma() {
@@ -94,7 +109,7 @@ public abstract class Personagem {
 	}
 
 	protected void setCarisma(int carisma) {
-		this.carisma = carisma;
+		this.carisma += carisma;
 	}
 
 	// Getters and setters for Mods
@@ -121,5 +136,7 @@ public abstract class Personagem {
 	public int getModCar() {
 		return modCar;
 	}
+
+
 
 }
