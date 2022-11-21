@@ -1,4 +1,4 @@
-public class HumanoGuerreiro extends Personagem implements Guerreiro {
+public class HumanoGuerreiro extends Humano {
 
     // Cálculos
     Maths calculadoraMod = new Maths();
@@ -31,66 +31,21 @@ public class HumanoGuerreiro extends Personagem implements Guerreiro {
         setNivel(20);
 
         // bonus
-        setBonusDeProficiencia(bonusDeProficiencia(nivel, 0));
+        setBonusDeProficiencia(bonusDeProficiencia);
+
+        // pontos de vida
+        setPontosDeVida(pontosDeVida, modCon);
     }
 
 
+
+    // pontos de vida de Guerreiro
 
     @Override
-    protected void setForca(int forca) {
-        forca += 1;
-        super.setForca(forca);
-    }
-
-    @Override
-    protected void setConstituicao(int constituicao) {
-        constituicao += 1;
-        super.setConstituicao(constituicao);
-    }
-
-    @Override
-    protected void setDestreza(int destreza) {
-        destreza += 1;
-        super.setDestreza(destreza);
-    }
-
-    @Override
-    protected void setInteligencia(int inteligencia) {
-        inteligencia += 1;
-        super.setInteligencia(inteligencia);
-    }
-
-    @Override
-    protected void setSabedoria(int sabedoria) {
-        sabedoria += 1;
-        super.setSabedoria(sabedoria);
-    }
-
-    @Override
-    protected void setCarisma(int carisma) {
-        carisma += 1;
-        super.setCarisma(carisma);
+    public void setPontosDeVida(int pontosDeVida, int modCon) {
+        pontosDeVida = 10 + modCon;
+        super.setPontosDeVida(pontosDeVida, modCon);
     }
 
 
-
-    
-
-    // implements
-
-    @Override
-    public int bonusDeProficiencia(int nivel, int bonus) {
-        if(nivel >= 1 && nivel <= 4) {
-            bonus = 2;
-        } else if (nivel >= 5 && nivel <= 8){
-            bonus = 3;
-        } else if (nivel >= 9 && nivel <= 12) {
-            bonus = 4;
-        } else if (nivel >=  13 && nivel <= 16) {
-            bonus = 5;
-        } else if (nivel >= 17 && nivel <= 20) {
-            bonus = 6;
-        }
-        return bonus;
-    }
 }

@@ -5,6 +5,10 @@ public abstract class Personagem {
 	protected String classe;
 	protected int nivel;
 	protected int bonusDeProficiencia;
+	protected int iniciativa;
+	protected int classeDeArmadura;
+	protected int percepcaoPassiva;
+	protected int pontosDeVida;
 
 	// Atributos
 	int forca;
@@ -23,7 +27,50 @@ public abstract class Personagem {
 	int modSab;
 	int modCar;
 
+	public void setPontosDeVida(int pontosDeVida, int modCon) {
+		this.pontosDeVida = pontosDeVida;
+	}
+
+	public int getPontosDeVida() {
+		return pontosDeVida;
+	}
+
+	public void setPercepcaoPassiva(int percepcaoPassiva) {
+		this.percepcaoPassiva = percepcaoPassiva;
+	}
+
+	public int getPercepcaoPassiva() {
+		return percepcaoPassiva;
+	}
+
+	public void setClasseDeArmadura(int classeDeArmadura) {
+		this.classeDeArmadura = classeDeArmadura;
+	}
+
+	public int getClasseDeArmadura() {
+		return classeDeArmadura;
+	}
+
+	public void setIniciativa(int iniciativa) {
+		this.iniciativa = iniciativa;
+	}
+
+	public int getIniciativa() {
+		return iniciativa;
+	}
+
 	public void setBonusDeProficiencia(int bonusDeProficiencia) {
+		if(nivel >= 1 && nivel <= 4) {
+            bonusDeProficiencia = 2;
+        } else if (nivel >= 5 && nivel <= 8){
+            bonusDeProficiencia = 3;
+        } else if (nivel >= 9 && nivel <= 12) {
+            bonusDeProficiencia = 4;
+        } else if (nivel >=  13 && nivel <= 16) {
+            bonusDeProficiencia = 5;
+        } else if (nivel >= 17 && nivel <= 20) {
+            bonusDeProficiencia = 6;
+        }
 		this.bonusDeProficiencia = bonusDeProficiencia;
 	}
 
