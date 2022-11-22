@@ -6,6 +6,17 @@ public class TesteRPG {
 		Personagem lux = new HumanoGuerreiro(15, 16, 18, 12, 14, 15);
 
 		lux.setNome("Lux");
+
+		MeioElfo nox = new MeioElfoGuerreiro();
+		nox.setNome("Nox");
+		System.out.println(nox.getNome());
+		nox.setForca(15);
+		System.out.println("Nox FORCA: " + nox.getForca());
+		nox.setAtributoExtraForca();	
+		System.out.println("Nox FORCA: " + nox.getForca());
+
+
+
 		System.out.println(lux.getNome());
 
 
