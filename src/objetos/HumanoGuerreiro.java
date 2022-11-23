@@ -30,18 +30,18 @@ public class HumanoGuerreiro extends Humano {
         setBonusDeProficiencia(bonusDeProficiencia);
 
         // pontos de vida
-        setPontosDeVida(pontosDeVida, modCon);
+        // setPontosDeVida(pontosDeVida, modCon);
     }
 
 
 
     // pontos de vida de Guerreiro
 
-    @Override
-    public void setPontosDeVida(int pontosDeVida, int modCon) {
-        pontosDeVida = 10 + modCon;
-        super.setPontosDeVida(pontosDeVida, modCon);
-    }
+    // @Override
+    // public void setPontosDeVida(int pontosDeVida, int modCon) {
+    //     pontosDeVida = 10 + modCon;
+    //     super.setPontosDeVida(pontosDeVida, modCon);
+    // }
 
 
 }

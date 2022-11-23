@@ -28,7 +28,7 @@ public abstract class Personagem {
 	int modSab;
 	int modCar;
 
-	public void setPontosDeVida(int pontosDeVida, int modCon) {
+	public void setPontosDeVida(int pontosDeVida) {
 		this.pontosDeVida = pontosDeVida;
 	}
 
