@@ -11,6 +11,10 @@ public abstract class Personagem {
 	protected int percepcaoPassiva;
 	protected int pontosDeVida;
 
+	// específicos do barbaro
+	private String furia;
+    private int danoDeFuria;
+
 	// Atributos
 	int forca;
 	int constituicao;
@@ -184,6 +188,24 @@ public abstract class Personagem {
 	public int getModCar() {
 		return modCar;
 	}
+
+	// getters e setters do barbaro
+
+	public void setFuria(String furia) {
+        this.furia = furia;
+    }
+
+    public void setDanoDeFuria(int danoDeFuria) {
+        this.danoDeFuria = danoDeFuria;
+    }
+
+    public String getFuria() {
+        return furia;
+    }
+
+    public int getDanoDeFuria() {
+        return danoDeFuria;
+    }
 
 
 

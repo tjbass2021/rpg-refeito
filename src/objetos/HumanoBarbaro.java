@@ -4,8 +4,6 @@ import calculos.Maths;
 
 public class HumanoBarbaro extends Humano {
 
-    private String furia;
-    private int danoDeFuria;
 
     public HumanoBarbaro (int forca, int constituicao, int destreza, int inteligencia, int sabedoria, int carisma, int nivel) {
 
@@ -36,26 +34,6 @@ public class HumanoBarbaro extends Humano {
         
 
     }
-
-    
-
-    public void setFuria(String furia) {
-        this.furia = furia;
-    }
-
-    public void setDanoDeFuria(int danoDeFuria) {
-        this.danoDeFuria = danoDeFuria;
-    }
-
-    public String getFuria() {
-        return furia;
-    }
-
-    public int getDanoDeFuria() {
-        return danoDeFuria;
-    }
-
-
 
     
 }
