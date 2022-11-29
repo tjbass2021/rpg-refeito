@@ -1,6 +1,7 @@
-package objetos;
+package objetos.humano;
 // import calculos.*;
 
+import objetos.Personagem;
 
 public abstract class Humano extends Personagem {
 

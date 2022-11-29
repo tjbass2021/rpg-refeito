@@ -1,4 +1,7 @@
-package objetos;
+package objetos.gnomo;
+
+import objetos.Personagem;
+
 public abstract class Gnomo extends Personagem{
 
     public Gnomo (int forca, int destreza, int constituicao, int inteligencia, int sabedoria, int carisma, int nivel) {

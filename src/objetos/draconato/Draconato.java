@@ -1,4 +1,7 @@
-package objetos;
+package objetos.draconato;
+
+import objetos.Personagem;
+
 public abstract class Draconato extends Personagem {
 
     public Draconato (int forca, int destreza, int constituicao, int inteligencia, int sabedoria, int carisma, int nivel) {

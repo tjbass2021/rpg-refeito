@@ -1,4 +1,7 @@
-package objetos;
+package objetos.elfo;
+
+import objetos.Personagem;
+
 public abstract class Elfo extends Personagem {
 
     public Elfo (int forca, int destreza, int constituicao, int inteligencia, int sabedoria, int carisma, int nivel) {

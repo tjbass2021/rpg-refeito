@@ -1,5 +1,7 @@
 package objetos;
 
+import objetos.humano.HumanoGuerreiro;
+
 public class TesteRPG {
 
 	public static void main(String[] args) {

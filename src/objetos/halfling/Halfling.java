@@ -1,4 +1,7 @@
-package objetos;
+package objetos.halfling;
+
+import objetos.Personagem;
+
 public abstract class Halfling extends Personagem {
 
     public Halfling (int forca, int destreza, int constituicao, int inteligencia, int sabedoria, int carisma, int nivel) {

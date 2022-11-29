@@ -1,4 +1,4 @@
-package objetos;
+package objetos.humano;
 
 // import calculos.CalcBarbaro;
 // import calculos.Maths;

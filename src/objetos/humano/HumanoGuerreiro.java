@@ -1,4 +1,5 @@
-package objetos;
+package objetos.humano;
+
 // import calculos.Maths;
 
 public class HumanoGuerreiro extends Humano {
@@ -56,7 +57,7 @@ public class HumanoGuerreiro extends Humano {
 
     @Override
     public void setPontosDeVida(int pontosDeVida) {
-        pontosDeVida = 10 + modCon;
+        pontosDeVida = 10 + getModCon();
         super.setPontosDeVida(pontosDeVida);
     }
 
