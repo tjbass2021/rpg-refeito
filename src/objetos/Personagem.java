@@ -44,6 +44,8 @@ public abstract class Personagem {
         setSabedoria(sabedoria);
         setCarisma(carisma);
 
+		setNivel(nivel);
+
         setModFor(Maths.calcMods(forca));
         setModDes(Maths.calcMods(destreza));
         setModCon(Maths.calcMods(constituicao));
@@ -55,6 +57,7 @@ public abstract class Personagem {
 
 
 	public void setPontosDeVida(int pontosDeVida) {
+		pontosDeVida = CalcVida.vida(getNivel(), getModCon(), getClasse());
 		this.pontosDeVida = pontosDeVida;
 	}
 
@@ -252,6 +255,26 @@ public abstract class Personagem {
     public int getDanoDeFuria() {
         return danoDeFuria;
     }
+
+
+	// exibição
+
+	public void exibirMensagem() {
+
+		System.out.println("=================");
+		System.out.println("Raça: " + getRaca());
+		System.out.println("Classe: " + getClasse());
+		System.out.println("Vida: " + getPontosDeVida());
+		System.out.println("=================");
+		System.out.println("====Atributos====");
+		System.out.println("Força: " + getForca() + " +(" + getModFor() + ")");
+		System.out.println("Constituição: " + getConstituicao() + " +(" + getModCon() + ")");
+		System.out.println("Destreza: " + getDestreza() + " +(" + getModDes() + ")");
+		System.out.println("Inteligência: " + getInteligencia() + " +(" + getModInt() + ")");
+		System.out.println("Sabedoria: " + getSabedoria() + " +(" + getModSab() + ")");
+		System.out.println("Carisma: " + getCarisma() + " +(" + getModCar() + ")");
+		System.out.println("================");
+	}
 
 
 

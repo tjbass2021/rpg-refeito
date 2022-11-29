@@ -1,5 +1,6 @@
 package objetos.humano;
 
+
 // import calculos.CalcBarbaro;
 // import calculos.Maths;
 
@@ -10,6 +11,12 @@ public class HumanoBarbaro extends Humano {
         super(forca, destreza, constituicao, inteligencia, sabedoria, carisma, nivel);
 
         setClasse();
+
+        setPontosDeVida(pontosDeVida);
+
+        exibirMensagem();
+
+
         
 
     }
@@ -17,6 +24,14 @@ public class HumanoBarbaro extends Humano {
     @Override
     public void setClasse() {
        this.classe = "Bárbaro"; 
+    }
+
+    @Override
+    public void exibirMensagem() {
+        super.exibirMensagem();
+
+        // escrever as mensagens específicas da classe bárbaro - preciso ver qual a melhor forma de fazer
+        System.out.println("Mensagem do Bárbaro");
     }
 
  
