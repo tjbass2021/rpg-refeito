@@ -1,30 +1,47 @@
 package objetos;
 public abstract class MeioElfo extends Personagem {
 
+
+    public MeioElfo (int forca, int destreza, int constituicao, int inteligencia, int sabedoria, int carisma, int nivel) {
+
+        super(forca, destreza, constituicao, inteligencia, sabedoria, carisma, nivel);
+
+
+
+        setRaca();
+
+
+    }
+
     @Override
-    protected void setCarisma(int carisma) {
+    public void setRaca() {
+       this.raca = "Meio-Elfo"; 
+    }
+
+    @Override
+    public void setCarisma(int carisma) {
         carisma = carisma + 2;
         super.setCarisma(carisma);
     }
 
-    // métodos espcíficos de bonificação extra para 2 atributos a escolha do jogador
-    protected void setAtributoExtraForca(){
+    // métodos específicos de bonificação extra para 2 atributos a escolha do jogador
+    public void setAtributoExtraForca(){
         this.forca += 1;
     }
 
-    protected void setAtributoExtraDestreza(){
+    public void setAtributoExtraDestreza(){
         this.destreza += 1;
     }
 
-    protected void setAtributoExtraConstituicao() {
+    public void setAtributoExtraConstituicao() {
         this.constituicao += 1;
     }
 
-    protected void setAtributoExtraInteligencia(){
+    public void setAtributoExtraInteligencia(){
         this.inteligencia += 1;
     }
 
-    protected void setAtributoExtraSabedoria() {
+    public void setAtributoExtraSabedoria() {
         this.sabedoria += 1;
     }
     

@@ -1,14 +1,30 @@
 package objetos;
 public abstract class Draconato extends Personagem {
 
+    public Draconato (int forca, int destreza, int constituicao, int inteligencia, int sabedoria, int carisma, int nivel) {
+
+        super(forca, destreza, constituicao, inteligencia, sabedoria, carisma, nivel);
+
+
+
+        setRaca();
+
+
+    }
+
     @Override
-    protected void setForca(int forca) {
+    public void setRaca() {
+       this.raca = "Draconato"; 
+    }
+
+    @Override
+    public void setForca(int forca) {
         forca = forca + 2;
         super.setForca(forca);
     }
 
     @Override
-    protected void setCarisma(int carisma) {
+    public void setCarisma(int carisma) {
         carisma = carisma + 1;
         super.setCarisma(carisma);
     }

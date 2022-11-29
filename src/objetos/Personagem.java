@@ -1,15 +1,17 @@
 package objetos;
 
+import calculos.*;
+
 public abstract class Personagem {
-	protected String nome;
-	protected String raca;
-	protected String classe;
-	protected int nivel;
-	protected int bonusDeProficiencia;
-	protected int iniciativa;
-	protected int classeDeArmadura;
-	protected int percepcaoPassiva;
-	protected int pontosDeVida;
+	public String nome;
+	public String raca;
+	public String classe;
+	public int nivel;
+	public int bonusDeProficiencia;
+	public int iniciativa;
+	public int classeDeArmadura;
+	public int percepcaoPassiva;
+	public int pontosDeVida;
 
 	// específicos do barbaro
 	private String furia;
@@ -31,6 +33,26 @@ public abstract class Personagem {
 	int modInt;
 	int modSab;
 	int modCar;
+
+
+	public Personagem(int forca, int destreza, int constituicao, int inteligencia, int sabedoria, int carisma, int nivel) {
+
+		setForca(forca);
+        setDestreza(destreza);
+        setConstituicao(constituicao);
+        setInteligencia(inteligencia);
+        setSabedoria(sabedoria);
+        setCarisma(carisma);
+
+        setModFor(Maths.calcMods(forca));
+        setModDes(Maths.calcMods(destreza));
+        setModCon(Maths.calcMods(constituicao));
+        setModInt(Maths.calcMods(inteligencia));
+        setModSab(Maths.calcMods(sabedoria));
+        setModCar(Maths.calcMods(carisma));
+	}
+
+
 
 	public void setPontosDeVida(int pontosDeVida) {
 		this.pontosDeVida = pontosDeVida;
@@ -91,80 +113,104 @@ public abstract class Personagem {
 		return nivel;
 	}
 
-	protected String getNome() {
+	public String getNome() {
 		return nome;
 	}
 
-	protected void setNome(String nome) {
+	public void setNome(String nome) {
 		this.nome = nome;
 	}
 
-	protected String getClasse() {
+	public String getClasse() {
 		return classe;
 	}
 
-	protected void setClasse(String classe) {
+	public void setClasse(String classe) {
 		this.classe = classe;
 	}
 
-	public void setRaca(String raca) {
-		this.raca = raca;
-	}
+	public abstract void setRaca(); 
+	
 
 	public String getRaca() {
 		return raca;
 	}
 
-	protected int getForca() {
+	public int getForca() {
 		return forca;
 	}
 
 	// Getters and setters for atributes
-	protected void setForca(int forca) {
+	public void setForca(int forca) {
 		this.forca += forca;
 	}
 
-	protected int getConstituicao() {
+	public int getConstituicao() {
 		return constituicao;
 	}
 
-	protected void setConstituicao(int constituicao) {
+	public void setConstituicao(int constituicao) {
 		this.constituicao += constituicao;
 	}
 
-	protected int getDestreza() {
+	public int getDestreza() {
 		return destreza;
 	}
 
-	protected void setDestreza(int destreza) {
+	public void setDestreza(int destreza) {
 		this.destreza += destreza;
 	}
 
-	protected int getInteligencia() {
+	public int getInteligencia() {
 		return inteligencia;
 	}
 
-	protected void setInteligencia(int inteligencia) {
+	public void setInteligencia(int inteligencia) {
 		this.inteligencia += inteligencia;
 	}
 
-	protected int getSabedoria() {
+	public int getSabedoria() {
 		return sabedoria;
 	}
 
-	protected void setSabedoria(int sabedoria) {
+	public void setSabedoria(int sabedoria) {
 		this.sabedoria += sabedoria;
 	}
 
-	protected int getCarisma() {
+	public int getCarisma() {
 		return carisma;
 	}
 
-	protected void setCarisma(int carisma) {
+	public void setCarisma(int carisma) {
 		this.carisma += carisma;
 	}
 
 	// Getters and setters for Mods
+
+	public void setModFor(int modFor) {
+		this.modFor = modFor;
+	}
+
+	public void setModDes(int modDes) {
+		this.modDes = modDes;
+	}
+
+	public void setModCon(int modCon) {
+		this.modCon = modCon;
+	}
+
+	public void setModInt(int modInt) {
+		this.modInt = modInt;
+	}
+
+	public void setModSab(int modSab) {
+		this.modSab = modSab;
+	}
+
+	public void setModCar(int modCar) {
+		this.modCar = modCar;
+	}
+
 	public int getModFor() {
 		return modFor;
 	}
