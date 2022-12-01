@@ -1,19 +1,13 @@
 package objetos.humano;
-// import calculos.*;
 
 import objetos.Personagem;
 
 public abstract class Humano extends Personagem {
 
-    public Humano (int forca, int destreza, int constituicao, int inteligencia, int sabedoria, int carisma, int nivel) {
+    public Humano(int forca, int destreza, int constituicao, int inteligencia, int sabedoria, int carisma, int nivel) {
 
         super(forca, destreza, constituicao, inteligencia, sabedoria, carisma, nivel);
-
-
-
         setRaca();
-
-
     }
 
     @Override
@@ -54,9 +48,9 @@ public abstract class Humano extends Personagem {
 
     @Override
     public void setRaca() {
-       this.raca = "Humano"; 
+        this.raca = "Humano";
     }
 
     public abstract void setClasse();
-    
+
 }

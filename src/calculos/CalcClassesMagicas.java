@@ -1,19 +1,19 @@
 package calculos;
 
-public abstract class CalcClassesMagicas {
+import objetos.Personagem;
+
+public abstract class CalcClassesMagicas extends Personagem{
       // cálculos de bardo, bruxo e clerigo
 
-  public static int calcVidaBardoBruxoClerigoDruida (int nivel, int modCon) {
-    int pontosDeVida = 0;
-    if (nivel == 1) {
-            pontosDeVida = 8 + modCon;
-        } else if (nivel > 1) {
-            pontosDeVida = (5 + modCon) * nivel;
-        }
-    return pontosDeVida;
-  }
+
 
   // truques conhecidos para bardo, bruxo e druida
+
+  public CalcClassesMagicas(int forca, int destreza, int constituicao, int inteligencia, int sabedoria, int carisma,
+      int nivel) {
+    super(forca, destreza, constituicao, inteligencia, sabedoria, carisma, nivel);
+    //TODO Auto-generated constructor stub
+  }
 
   public static int calcTruques (int nivel) {
     int truques = 0;
@@ -101,10 +101,17 @@ public abstract class CalcClassesMagicas {
 
   // calculo de classe de dificuldade de magia CD
 
-  public static int calcCDMAgiaBardo (int bonusDeProficiencia, int modCar) {
+  public static int calcCDMAgia (int bonusDeProficiencia, int modCar) {
     int cd = 8 + bonusDeProficiencia + modCar;
     return cd;
   }
+
+  public static void msg(int cd, int modAtqMagia) {
+    System.out.println("CD de magia: " + cd);
+    System.out.println("Mod Atq Magia: " + modAtqMagia);
+  }
+
+
 
   // calculo de modificador de ataque de magia
 

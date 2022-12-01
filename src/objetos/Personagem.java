@@ -3,36 +3,42 @@ package objetos;
 import calculos.*;
 
 public abstract class Personagem {
-	public String nome;
-	public String raca;
-	public String classe;
-	public int nivel;
-	public int bonusDeProficiencia;
-	public int iniciativa;
-	public int classeDeArmadura;
-	public int percepcaoPassiva;
-	public int pontosDeVida;
+	protected String nome;
+	protected String raca;
+	protected String classe;
+	protected int nivel;
+	protected int bonusDeProficiencia;
+	protected int iniciativa;
+	protected int classeDeArmadura;
+	protected int percepcaoPassiva;
+	protected int pontosDeVida;
 
 	// específicos do barbaro
-	private String furia;
-    private int danoDeFuria;
+	protected String furia;
+  	protected int danoDeFuria;
+
+	// específicos das classes mágicas
+	protected int qtdTruques;
+	protected int qtdMagiaBardo;
+	protected int CDdeMagia;
+	protected int atqDeMagia;
 
 	// Atributos
-	int forca;
-	int constituicao;
-	int destreza;
-	int inteligencia;
-	int sabedoria;
-	int carisma;
+  	protected int forca;
+	protected int constituicao;
+  	protected int destreza;
+  	protected int inteligencia;
+  	protected int sabedoria;
+  	protected int carisma;
 
 	// Modificadores
 
-	int modFor;
-	int modCon;
-	int modDes;
-	int modInt;
-	int modSab;
-	int modCar;
+    protected int modFor;
+	protected int modCon;
+	protected int modDes;
+	protected int modInt;
+	protected int modSab;
+	protected int modCar;
 
 
 	public Personagem(int forca, int destreza, int constituicao, int inteligencia, int sabedoria, int carisma, int nivel) {
@@ -52,13 +58,14 @@ public abstract class Personagem {
         setModInt(Maths.calcMods(inteligencia));
         setModSab(Maths.calcMods(sabedoria));
         setModCar(Maths.calcMods(carisma));
+
+        setBonusDeProficiencia();
 	}
 
 
 
-	public void setPontosDeVida(int pontosDeVida) {
+	public void setPontosDeVida() {
 		pontosDeVida = CalcVida.vida(getNivel(), getModCon(), getClasse());
-		this.pontosDeVida = pontosDeVida;
 	}
 
 	public int getPontosDeVida() {
@@ -89,7 +96,7 @@ public abstract class Personagem {
 		return iniciativa;
 	}
 
-	public void setBonusDeProficiencia(int bonusDeProficiencia) {
+	public void setBonusDeProficiencia() {
 		if(nivel >= 1 && nivel <= 4) {
             bonusDeProficiencia = 2;
         } else if (nivel >= 5 && nivel <= 8){
@@ -101,7 +108,6 @@ public abstract class Personagem {
         } else if (nivel >= 17 && nivel <= 20) {
             bonusDeProficiencia = 6;
         }
-		this.bonusDeProficiencia = bonusDeProficiencia;
 	}
 
 	public int getBonusDeProficiencia() {
@@ -257,6 +263,40 @@ public abstract class Personagem {
     }
 
 
+	// getters e setters específicos de classes
+	public void setAtqDeMagia(int atqDeMagia) {
+		this.atqDeMagia = atqDeMagia;
+	}
+
+	public int getAtqDeMagia() {
+		return atqDeMagia;
+	}
+
+	public void setCDdeMagia(int cDdeMagia) {
+		CDdeMagia = cDdeMagia;
+	}
+
+	public int getCDdeMagia() {
+		return CDdeMagia;
+	}
+
+	public void setQtdMagiaBardo(int qtdMagiaBardo) {
+		this.qtdMagiaBardo = qtdMagiaBardo;
+	}
+
+	public int getQtdMagiaBardo() {
+		return qtdMagiaBardo;
+	}
+
+	public void setQtdTruques(int qtdTruques) {
+		this.qtdTruques = qtdTruques;
+	}
+
+	public int getQtdTruques() {
+		return qtdTruques;
+	}
+
+
 	// exibição
 
 	public void exibirMensagem() {
@@ -274,8 +314,10 @@ public abstract class Personagem {
 		System.out.println("Sabedoria: " + getSabedoria() + " +(" + getModSab() + ")");
 		System.out.println("Carisma: " + getCarisma() + " +(" + getModCar() + ")");
 		System.out.println("================");
+		System.out.println("BP: " + getBonusDeProficiencia());
 	}
 
 
 
 }
+

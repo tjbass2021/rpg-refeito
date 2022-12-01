@@ -1,8 +1,6 @@
 package objetos.humano;
 
 
-// import calculos.CalcBarbaro;
-// import calculos.Maths;
 
 public class HumanoBarbaro extends Humano {
 
@@ -12,13 +10,9 @@ public class HumanoBarbaro extends Humano {
 
         setClasse();
 
-        setPontosDeVida(pontosDeVida);
+        setPontosDeVida();
 
         exibirMensagem();
-
-
-        
-
     }
 
     @Override

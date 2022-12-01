@@ -1,15 +1,12 @@
 package objetos.humano;
 
-// import calculos.Maths;
+public class HumanoBardo extends Humano {
 
-public class HumanoGuerreiro extends Humano {
-
-    public HumanoGuerreiro(int forca, int destreza, int constituicao, int inteligencia, int sabedoria, int carisma,
+    public HumanoBardo(int forca, int destreza, int constituicao, int inteligencia, int sabedoria, int carisma,
             int nivel) {
-
         super(forca, destreza, constituicao, inteligencia, sabedoria, carisma, nivel);
 
-        setClasse();
+        setRaca();
         setPontosDeVida();
 
         exibirMensagem();
@@ -17,8 +14,8 @@ public class HumanoGuerreiro extends Humano {
 
     @Override
     public void setClasse() {
-        this.classe = "Guerreiro";
-
+       this.classe = "Bardo"; 
     }
+
 
 }
