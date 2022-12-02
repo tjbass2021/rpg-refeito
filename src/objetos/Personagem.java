@@ -1,5 +1,7 @@
 package objetos;
 
+import calculos.*;
+
 public abstract class Personagem {
 	protected String nome;
 	protected String raca;
@@ -11,25 +13,59 @@ public abstract class Personagem {
 	protected int percepcaoPassiva;
 	protected int pontosDeVida;
 
+	// específicos do barbaro
+	protected String furia;
+  	protected int danoDeFuria;
+
+	// específicos das classes mágicas
+	protected int qtdTruques;
+	protected int qtdMagiaBardo;
+	protected int CDdeMagia;
+	protected int atqDeMagia;
+
 	// Atributos
-	int forca;
-	int constituicao;
-	int destreza;
-	int inteligencia;
-	int sabedoria;
-	int carisma;
+  	protected int forca;
+	protected int constituicao;
+  	protected int destreza;
+  	protected int inteligencia;
+  	protected int sabedoria;
+  	protected int carisma;
 
 	// Modificadores
 
-	int modFor;
-	int modCon;
-	int modDes;
-	int modInt;
-	int modSab;
-	int modCar;
+    protected int modFor;
+	protected int modCon;
+	protected int modDes;
+	protected int modInt;
+	protected int modSab;
+	protected int modCar;
 
-	public void setPontosDeVida(int pontosDeVida, int modCon) {
-		this.pontosDeVida = pontosDeVida;
+
+	public Personagem(int forca, int destreza, int constituicao, int inteligencia, int sabedoria, int carisma, int nivel) {
+
+		setForca(forca);
+        setDestreza(destreza);
+        setConstituicao(constituicao);
+        setInteligencia(inteligencia);
+        setSabedoria(sabedoria);
+        setCarisma(carisma);
+
+		setNivel(nivel);
+
+        setModFor(Maths.calcMods(forca));
+        setModDes(Maths.calcMods(destreza));
+        setModCon(Maths.calcMods(constituicao));
+        setModInt(Maths.calcMods(inteligencia));
+        setModSab(Maths.calcMods(sabedoria));
+        setModCar(Maths.calcMods(carisma));
+
+        setBonusDeProficiencia();
+	}
+
+
+
+	public void setPontosDeVida() {
+		pontosDeVida = CalcVida.vida(getNivel(), getModCon(), getClasse());
 	}
 
 	public int getPontosDeVida() {
@@ -60,7 +96,7 @@ public abstract class Personagem {
 		return iniciativa;
 	}
 
-	public void setBonusDeProficiencia(int bonusDeProficiencia) {
+	public void setBonusDeProficiencia() {
 		if(nivel >= 1 && nivel <= 4) {
             bonusDeProficiencia = 2;
         } else if (nivel >= 5 && nivel <= 8){
@@ -72,7 +108,6 @@ public abstract class Personagem {
         } else if (nivel >= 17 && nivel <= 20) {
             bonusDeProficiencia = 6;
         }
-		this.bonusDeProficiencia = bonusDeProficiencia;
 	}
 
 	public int getBonusDeProficiencia() {
@@ -87,80 +122,104 @@ public abstract class Personagem {
 		return nivel;
 	}
 
-	protected String getNome() {
+	public String getNome() {
 		return nome;
 	}
 
-	protected void setNome(String nome) {
+	public void setNome(String nome) {
 		this.nome = nome;
 	}
 
-	protected String getClasse() {
+	public String getClasse() {
 		return classe;
 	}
 
-	protected void setClasse(String classe) {
+	public void setClasse(String classe) {
 		this.classe = classe;
 	}
 
-	public void setRaca(String raca) {
-		this.raca = raca;
-	}
+	public abstract void setRaca(); 
+	
 
 	public String getRaca() {
 		return raca;
 	}
 
-	protected int getForca() {
+	public int getForca() {
 		return forca;
 	}
 
 	// Getters and setters for atributes
-	protected void setForca(int forca) {
+	public void setForca(int forca) {
 		this.forca += forca;
 	}
 
-	protected int getConstituicao() {
+	public int getConstituicao() {
 		return constituicao;
 	}
 
-	protected void setConstituicao(int constituicao) {
+	public void setConstituicao(int constituicao) {
 		this.constituicao += constituicao;
 	}
 
-	protected int getDestreza() {
+	public int getDestreza() {
 		return destreza;
 	}
 
-	protected void setDestreza(int destreza) {
+	public void setDestreza(int destreza) {
 		this.destreza += destreza;
 	}
 
-	protected int getInteligencia() {
+	public int getInteligencia() {
 		return inteligencia;
 	}
 
-	protected void setInteligencia(int inteligencia) {
+	public void setInteligencia(int inteligencia) {
 		this.inteligencia += inteligencia;
 	}
 
-	protected int getSabedoria() {
+	public int getSabedoria() {
 		return sabedoria;
 	}
 
-	protected void setSabedoria(int sabedoria) {
+	public void setSabedoria(int sabedoria) {
 		this.sabedoria += sabedoria;
 	}
 
-	protected int getCarisma() {
+	public int getCarisma() {
 		return carisma;
 	}
 
-	protected void setCarisma(int carisma) {
+	public void setCarisma(int carisma) {
 		this.carisma += carisma;
 	}
 
 	// Getters and setters for Mods
+
+	public void setModFor(int modFor) {
+		this.modFor = modFor;
+	}
+
+	public void setModDes(int modDes) {
+		this.modDes = modDes;
+	}
+
+	public void setModCon(int modCon) {
+		this.modCon = modCon;
+	}
+
+	public void setModInt(int modInt) {
+		this.modInt = modInt;
+	}
+
+	public void setModSab(int modSab) {
+		this.modSab = modSab;
+	}
+
+	public void setModCar(int modCar) {
+		this.modCar = modCar;
+	}
+
 	public int getModFor() {
 		return modFor;
 	}
@@ -185,6 +244,80 @@ public abstract class Personagem {
 		return modCar;
 	}
 
+	// getters e setters do barbaro
+
+	public void setFuria(String furia) {
+        this.furia = furia;
+    }
+
+    public void setDanoDeFuria(int danoDeFuria) {
+        this.danoDeFuria = danoDeFuria;
+    }
+
+    public String getFuria() {
+        return furia;
+    }
+
+    public int getDanoDeFuria() {
+        return danoDeFuria;
+    }
+
+
+	// getters e setters específicos de classes
+	public void setAtqDeMagia(int atqDeMagia) {
+		this.atqDeMagia = atqDeMagia;
+	}
+
+	public int getAtqDeMagia() {
+		return atqDeMagia;
+	}
+
+	public void setCDdeMagia(int cDdeMagia) {
+		CDdeMagia = cDdeMagia;
+	}
+
+	public int getCDdeMagia() {
+		return CDdeMagia;
+	}
+
+	public void setQtdMagiaBardo(int qtdMagiaBardo) {
+		this.qtdMagiaBardo = qtdMagiaBardo;
+	}
+
+	public int getQtdMagiaBardo() {
+		return qtdMagiaBardo;
+	}
+
+	public void setQtdTruques(int qtdTruques) {
+		this.qtdTruques = qtdTruques;
+	}
+
+	public int getQtdTruques() {
+		return qtdTruques;
+	}
+
+
+	// exibição
+
+	public void exibirMensagem() {
+
+		System.out.println("=================");
+		System.out.println("Raça: " + getRaca());
+		System.out.println("Classe: " + getClasse());
+		System.out.println("Vida: " + getPontosDeVida());
+		System.out.println("=================");
+		System.out.println("====Atributos====");
+		System.out.println("Força: " + getForca() + " +(" + getModFor() + ")");
+		System.out.println("Constituição: " + getConstituicao() + " +(" + getModCon() + ")");
+		System.out.println("Destreza: " + getDestreza() + " +(" + getModDes() + ")");
+		System.out.println("Inteligência: " + getInteligencia() + " +(" + getModInt() + ")");
+		System.out.println("Sabedoria: " + getSabedoria() + " +(" + getModSab() + ")");
+		System.out.println("Carisma: " + getCarisma() + " +(" + getModCar() + ")");
+		System.out.println("================");
+		System.out.println("BP: " + getBonusDeProficiencia());
+	}
+
 
 
 }
+

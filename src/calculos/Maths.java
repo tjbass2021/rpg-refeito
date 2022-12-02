@@ -1,5 +1,5 @@
 package calculos;
-public class Maths {
+public abstract class Maths {
 
   public static int calcMods(int atributo) {
     int mod = 0;
@@ -59,4 +59,6 @@ public class Maths {
   public static int calculoDePericias(int modificador, int bonusDeProficiencia) {
     return modificador + bonusDeProficiencia;
   }
+
+
 }
